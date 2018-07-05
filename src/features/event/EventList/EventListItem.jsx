@@ -26,13 +26,15 @@ class EventListItem extends Component {
             <Icon name="marker" /> {event.venue}
           </span>
         </Segment>
-        <Segment secondary>
-          <List horizontal>
-            {event.attendees.map(attendee => (
-              <EventListAttendee key={attendee.id} attendee={attendee} />
-            ))}
-          </List>
-        </Segment>
+        {event.attendees && (
+          <Segment secondary>
+            <List horizontal>
+              {event.attendees.map(attendee => (
+                <EventListAttendee key={attendee.id} attendee={attendee} />
+              ))}
+            </List>
+          </Segment>
+        )}
         <Segment clearing>
           <span>{event.description}</span>
           <Button as="a" color="teal" floated="right" content="View" />
